@@ -18,9 +18,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2) #Сл
 sc = StandardScaler() #Нормализуем данные для обучения
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
-classifier = GaussianNB()
-classifier.fit(X_train, y_train)
-y_pred = classifier.predict(X_test)
+classifier = GaussianNB() #Определяем тип модели
+classifier.fit(X_train, y_train) #Отправляем данные в модель
+y_pred = classifier.predict(X_test) #Предугадываем
 
 print ("\nТочность : ", accuracy_score(y_test, y_pred))
 
@@ -32,3 +32,4 @@ print("\n",df)
 
 sns.set_style("whitegrid")
 sns.FacetGrid(dataset, hue="species", height =6).map(plt.scatter,'sepal_length', 'petal_length').add_legend()
+plt.show()
